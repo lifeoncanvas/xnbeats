@@ -1,0 +1,176 @@
+html, a{
+    font-family: "Montserrat",sans-serif;
+    font-size: 14px;
+    color: #222;
+}
+
+.container.page {
+    min-height: 100vh;
+}
+
+a:hover {
+    text-decoration: none;
+    color:inherit;
+} 
+
+.logo span {
+    color:#EC3460;
+}
+
+.carousel-caption {
+    background: #00000073;
+}
+
+.form_contact {
+    margin: 100px 0px;
+}
+
+header a ,header .header_btn{
+    font-size: 16px;
+}
+
+.header_btn {
+    color:#EC3460;
+    font-weight: 700;
+    cursor: pointer;
+}
+.header_btn:hover {
+    text-decoration: none;
+    color:inherit;
+} 
+
+header .site-header {
+    background-color: rgba(255, 255, 255, 0.85);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid #e6e6e6;
+}
+
+header .user_area_btn{
+    color:#EC3460;
+    font-weight: 700;
+}
+
+html .logo {
+    font-size: 36px;
+    font-family: 'Allerta Stencil', sans-serif;
+}
+
+footer {
+    margin-top: 30px;
+}
+
+/*===============================
+            LOGIN
+*================================*/
+
+.login-wrapper {
+    padding: 200px 0px;
+}
+
+.login-wrapper .form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+}
+
+.login-wrapper .login_type_btn {
+    color: #007bff;
+    cursor: pointer;
+}
+
+.sidebar {
+    height: 100vh;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    padding: 48px 0 0;
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
+.spinner {
+    text-align: center;
+    margin-top: 10px;
+}
+
+/*===============================
+            DASHBOARD
+*================================*/
+
+.admin_name_btn {
+    border: 1px solid #03A9F4;
+    color: #03A9F4;
+    padding: 5px 10px;
+    font-size: 10px;
+}
+
+form .error {
+    color:red;
+}
+
+.ck.ck-content {
+    height:200px;
+}
+
+
+.table-link {
+    color: #ffc107;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  
+  .table-link-red {
+    color: #ff7482;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  .table-link-red:hover {
+    color: #fd1f36;
+  }
+  
+  .table-link:hover {
+    color: #ffdb6f;
+  }
+  
+  .status-color {
+    color: #4fe7ff;
+  }
+
+
+  .my-masonry-grid {
+    display: -webkit-box; /* Not needed if autoprefixing */
+    display: -ms-flexbox; /* Not needed if autoprefixing */
+    display: flex;
+    margin-left: -30px; /* gutter size offset */
+    width: auto;
+  }
+  .my-masonry-grid_column {
+    padding-left: 30px; /* gutter size */
+    background-clip: padding-box;
+  }
+  
+  /* Style your items */
+  .my-masonry-grid_column > div { 
+
+    margin-top: 30px;
+}
+
+.card_image {
+    position: relative;
+}
+
+.card_blur {
+    transition: all 0.3s ease;
+    position: absolute;
+    background: #ffffff;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    opacity: 0.4;
+}
+
+.card_blur:hover {
+    transition: all 0.3s ease;
+    opacity: 0.1;
+}

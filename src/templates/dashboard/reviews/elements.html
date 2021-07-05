@@ -1,0 +1,106 @@
+<!-- INDEX TABLE -->
+<div className="table-responsive-md">
+<table className="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Rating</th>
+            <th scope="col">Owner</th>
+            <th scope="col">Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>
+                <div className="table-link-red">Delete</div>
+            </td>
+            <td>
+                <Link className="table-link" to="">Edit</Link>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+
+
+<!-- ADD REVIEW FORM -->
+<Form onSubmit="">
+    <Form.Row>
+    <Col md={8}>
+        <Form.Group>
+            <Form.Label>Title</Form.Label>
+            <Form.Control 
+                type="text"
+                name="title"
+                value=""
+                onChange=""
+            />
+            <div className="error"></div>
+        </Form.Group>
+        <Form.Group>
+            <Form.Label>Excerpt</Form.Label>
+            <Form.Control 
+                as="textarea" 
+                rows="3"
+                name="excerpt"
+                value=""
+                onChange=""
+            />
+            <div className="error"></div>
+        </Form.Group>
+        <Form.Group>
+           editor
+        </Form.Group>
+        <div className="error"></div>
+ 
+        <Form.Group>
+            <Form.Label>Rating</Form.Label>
+                <Form.Control 
+                    as="select" 
+                    name="rating" 
+                    onChange=""
+                    value=""
+                >
+                    <option value="" defaultValue>Choose...</option>
+                    <option value="1">1 Star</option>
+                    <option value="2">2 Stars</option>
+                    <option value="3">3 Stars</option>
+                    <option value="4">4 Stars</option>
+                    <option value="5">5 Stars</option>
+                </Form.Control>
+                <div className="error"></div>
+        </Form.Group>
+        <Form.Group>
+            <Form.Label>Public</Form.Label>
+                <Form.Control 
+                    as="select" 
+                    name="public" 
+                    onChange=""
+                    value=""
+                >
+                    <option value="" defaultValue>Choose...</option>
+                    <option value="1">Public</option>
+                    <option value="0">Draft</option>
+                </Form.Control>
+                <div className="error"></div>
+        </Form.Group>
+        <Button 
+            variant="primary" 
+            type="submit" 
+            disabled="">
+            Submit
+        </Button>
+    </Col>
+    <Col>
+        UPLOADER
+        <div className="error">Add an image please</div>
+    </Col>
+    </Form.Row>
+</Form>
