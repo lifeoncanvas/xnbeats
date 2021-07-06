@@ -25,3 +25,8 @@ export const logoutUser = () => ({
     payload: api.logoutUser()
 })
 
+
+export const updateProfile = (formdata,isEmailChanged) => ({
+    type:LOGOUT_USER,
+    payload: api.updateProfile(formdata,isEmailChanged)
+})
