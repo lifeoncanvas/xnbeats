@@ -1,7 +1,9 @@
 import {
     AUTH_USER,
     LOGOUT_USER,
-    ADD_REVIEW
+    ADD_REVIEW,
+    CLEAR_REVIEW,
+    GET_REVIEWS
 } from '../types';
 
 import * as api from '../../api';
@@ -37,4 +39,19 @@ export const updateProfile = (formdata,isEmailChanged) => ({
 export const addReview = (data,user) => ({
     type:ADD_REVIEW,
     payload: api.addReview(data,user)
+})
+
+export const clearReview = () => ({
+    type:CLEAR_REVIEW,
+    payload: null
+})
+
+export const getReviews = (limit) => ({
+    type:GET_REVIEWS,
+    payload: api.getReviews(limit)
+})
+
+export const loadMoreReviews = (limit, reviews) => ({
+    type:GET_REVIEWS,
+    payload: api.loadMoreReviews(limit, reviews)
 })

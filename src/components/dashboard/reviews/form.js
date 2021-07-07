@@ -9,13 +9,16 @@ import * as Yup from 'yup';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
-import {addReview} from '../../../store/actions';
+import {addReview,clearReview} from '../../../store/actions';
 import Uploader from './uploader';
 
 class ReviewForm extends Component {
 	state={
 		editor:'',
 		editorError:false,
+		img:'http://via.placeholder.com/400',
+		imgName:'',
+		imgError:'',
 		disabled:false,
 		initialValues:{
 			title:'',
@@ -23,12 +26,18 @@ class ReviewForm extends Component {
 			rating:'',
 			public:''
 		}
-	}  
+	} 
+	
+		componentWillUnmount(){
+			this.props.dispatch(clearReview());
+		}
 
 		handleResetForm=(resetForm)=> {
 			resetForm({});
 			this.setState({
 				editor:'',
+				img:'http://via.placeholder.com/400',
+				imgError:'False',
 				disabled:false
 			});
 			toast.success('congrats',{
@@ -36,8 +45,13 @@ class ReviewForm extends Component {
 			});
 		}
 
+		handleImageName = (name,download) => {
+			this.setState({img: download,imgName: name})
+		}
+	
+
 	 handleSubmit=(values,resetForm) => {
-		let formData = {...values, content: this.state.editor};
+		let formData = {...values, content: this.state.editor,img:this.state.imgName};
 
 		this.props.dispatch(addReview(formData,this.props.auth.user)).then(()=>{
 			this.handleResetForm(resetForm);
@@ -59,7 +73,12 @@ class ReviewForm extends Component {
 			onSubmit={(values,{resetForm})=>{
 				if(Object.entries(state.editor).length === 0){
 					return this.setState({editorError:true})
-				}else {
+				}
+				
+				else if(state.imgName === ''){
+					return this.setState({imgError:true,editorError:false})
+				}
+				else {
 					this.setState({disabled:true,editorError:false});
 					this.handleSubmit(values,resetForm);
 				}
@@ -171,10 +190,17 @@ class ReviewForm extends Component {
                 </Button>
               </Col>
               <Col>
-                <Uploader/>
-                {/* <div className="error">Add an image please</div> */}
+                <Uploader
+					handleImageName= {this.handleImageName}
+					img={state.img}
+				/>
+				{state.imgError ?
+				<div className="error">Add an image please</div>
+				:null	
+				}
+                
               </Col>
-            </Form.Row>
+            </Form.Row>  
           </Form>
         )}
       </Formik>

@@ -94,3 +94,42 @@ export const addReview = (data,user) => (
     })
 
 )
+
+export const getReviews = (limit) => (
+    reviewsCollection
+    .orderBy('createdAt')
+    .limit(limit)
+    .get()
+    .then( snapshot =>{
+        const lastVisible = snapshot.docs[snapshot.docs.length-1];
+        const reviews =  snapshot.docs.map( doc => ({
+            id: doc.id, ...doc.data()
+        }));
+
+        return { posts: reviews,lastVisible:lastVisible }
+    })
+);
+
+export const loadMoreReviews = (limit, reviews) => {
+    let posts = [...reviews.posts];
+    let lastVisible = reviews.lastVisible;
+
+    if(lastVisible){
+        return reviewsCollection
+        .orderBy('createdAt')
+        .startAfter(lastVisible)
+        .limit(limit)
+        .get()
+        .then( snapshot => {
+            const lastVisible = snapshot.docs[snapshot.docs.length-1];
+            const newReviews =  snapshot.docs.map( doc => ({
+                id: doc.id, ...doc.data()
+            }));
+
+            return { posts: [...posts,...newReviews],lastVisible }
+        });
+    } else {
+        console.log('no more posts')
+        return { posts, lastVisible }
+    }
+}
