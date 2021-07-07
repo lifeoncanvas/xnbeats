@@ -33,6 +33,7 @@ class Routes extends Component {
                     logout={this.handleLogout}
                 />
                 <Switch>
+                    <Route path="/dashboard/reviews/edit/:id" component={AuthHoc(ReviewAddEdit,true)} />
                     <Route path="/dashboard/reviews/add" component={AuthHoc(ReviewAddEdit,true)} />
                     <Route path="/dashboard/reviews" component={AuthHoc(Reviews,true)} />
                     <Route path="/dashboard/profile" component={AuthHoc(Profile)} />

@@ -1,5 +1,6 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import 'firebase/storage';
 
 import { usersCollection,reviewsCollection } from '../utils/fbase';
 
@@ -131,5 +132,23 @@ export const loadMoreReviews = (limit, reviews) => {
     } else {
         console.log('no more posts')
         return { posts, lastVisible }
+    }
+}
+
+export const editReview = (data, id) => (
+    reviewsCollection.doc(id).update(data).then(()=>{
+        return getReviewById(id)
+    })
+)
+
+export const getReviewById = async(id) => {
+    try {
+        const snapshot = await reviewsCollection.doc(id).get();
+        const data = snapshot.data();
+
+        const url = await firebase.storage().ref(`reviews/${data.img}`).getDownloadURL()
+        return { ...data, downloadUrl:url }
+    } catch(error) {
+        return null
     }
 }
