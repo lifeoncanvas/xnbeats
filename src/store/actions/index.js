@@ -1,6 +1,7 @@
 import {
     AUTH_USER,
-    LOGOUT_USER
+    LOGOUT_USER,
+    ADD_REVIEW
 } from '../types';
 
 import * as api from '../../api';
@@ -29,4 +30,11 @@ export const logoutUser = () => ({
 export const updateProfile = (formdata,isEmailChanged) => ({
     type:LOGOUT_USER,
     payload: api.updateProfile(formdata,isEmailChanged)
+})
+
+
+//==================reviews
+export const addReview = (data,user) => ({
+    type:ADD_REVIEW,
+    payload: api.addReview(data,user)
 })
