@@ -8,10 +8,10 @@ class Login extends Component {
 
   state = {
     formdata: {
-      name: 'francis',
-      lastname: 'jones',
-      password: 'testing123',
-      email: 'francis@gmail.com'
+      name: '',
+      lastname: '',
+      password: '',
+      email: ''
     },
     register: false,
     loading: false

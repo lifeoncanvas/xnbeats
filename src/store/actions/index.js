@@ -4,7 +4,8 @@ import {
     ADD_REVIEW,
     CLEAR_REVIEW,
     GET_REVIEWS,
-    GET_REVIEW_BY_ID
+    GET_REVIEW_BY_ID,
+    FETCH_POSTS
 } from '../types';
 
 import * as api from '../../api';
@@ -37,6 +38,12 @@ export const updateProfile = (formdata,isEmailChanged) => ({
 
 
 //==================reviews
+
+export const fetchPosts = (id,cond) => ({
+    type:FETCH_POSTS,
+    payload: api.fetchPosts(id,cond)
+})
+
 export const addReview = (data,user) => ({
     type:ADD_REVIEW,
     payload: api.addReview(data,user)

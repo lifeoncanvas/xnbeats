@@ -2,7 +2,8 @@ import {
     ADD_REVIEW,
 	CLEAR_REVIEW,
 	GET_REVIEWS,
-	GET_REVIEW_BY_ID
+	GET_REVIEW_BY_ID,
+	FETCH_POSTS
 } from '../types';
 
 
@@ -17,6 +18,8 @@ export default function (state={},action){
             return { ...state, adminReviews: action.payload}
 			case GET_REVIEW_BY_ID:
 				return {...state, reviewById: action.payload }
+			case FETCH_POSTS:
+            return {...state, posts: action.payload }
 
 		default:
 			return state;

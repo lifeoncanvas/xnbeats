@@ -15,7 +15,7 @@ import Dashboard from './components/dashboard';
 import Reviews from './components/dashboard/reviews';
 import Profile from './components/dashboard/profile';
 import ReviewAddEdit from './components/dashboard/reviews/add_edit';
-
+import Review from './components/review';
 
 class Routes extends Component {
 
@@ -33,11 +33,13 @@ class Routes extends Component {
                     logout={this.handleLogout}
                 />
                 <Switch>
+                   
                     <Route path="/dashboard/reviews/edit/:id" component={AuthHoc(ReviewAddEdit,true)} />
                     <Route path="/dashboard/reviews/add" component={AuthHoc(ReviewAddEdit,true)} />
                     <Route path="/dashboard/reviews" component={AuthHoc(Reviews,true)} />
                     <Route path="/dashboard/profile" component={AuthHoc(Profile)} />
                     <Route path="/dashboard" component={AuthHoc(Dashboard)} />
+                    <Route path="/reviews/:id" component={AuthHoc(Review)} />
                     <Route path="/login" component={Login} />
                     <Route path="/contact" component={Contact} />
                     <Route path="/" component={Home} />
